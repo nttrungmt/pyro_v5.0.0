@@ -1,0 +1,6 @@
+[pyrobot]
+name=Python Robotics
+baseurl=http://PyroRobotics.org/fedora/$releasever/$basearch
+enabled=1
+gpgcheck=1
+gpgkey=http://PyroRobotics.org/fedora/RPM-GPG-KEY-dblank

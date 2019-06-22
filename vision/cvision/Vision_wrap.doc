@@ -1,0 +1,247 @@
+Vision.cc
+
+[ Python Module : vision ]
+
+
+1.  class Bitmap
+================
+[ created from struct Bitmap ]
+
+
+Bitmap_height_set(Bitmap *,int )
+Bitmap_height_get(Bitmap *)
+        [ Member data: returns int  ]
+
+Bitmap_width_set(Bitmap *,int )
+Bitmap_width_get(Bitmap *)
+        [ Member data: returns int  ]
+
+Bitmap_depth_set(Bitmap *,int )
+Bitmap_depth_get(Bitmap *)
+        [ Member data: returns int  ]
+
+Bitmap_data_get(Bitmap *)
+        [ Member data: returns unsigned int * ]
+
+Bitmap_equivList_set(Bitmap *,int *)
+Bitmap_equivList_get(Bitmap *)
+        [ Member data: returns int * ]
+
+2.  class Point
+===============
+[ created from struct Point ]
+
+
+Point_x_set(Point *,int )
+Point_x_get(Point *)
+        [ Member data: returns int  ]
+
+Point_y_set(Point *,int )
+Point_y_get(Point *)
+        [ Member data: returns int  ]
+
+3.  class Blob
+==============
+[ created from struct Blob ]
+
+
+Blob_ul_set(Blob *,Point *)
+Blob_ul_get(Blob *)
+        [ Member data: returns Point * ]
+
+Blob_lr_set(Blob *,Point *)
+Blob_lr_get(Blob *)
+        [ Member data: returns Point * ]
+
+Blob_cm_set(Blob *,Point *)
+Blob_cm_get(Blob *)
+        [ Member data: returns Point * ]
+
+Blob_mass_set(Blob *,int )
+Blob_mass_get(Blob *)
+        [ Member data: returns int  ]
+
+Blob_next_set(Blob *,int )
+Blob_next_get(Blob *)
+        [ Member data: returns int  ]
+
+----------
+
+MAXBLOBS = 2000
+        [ Constant: int  ]
+
+4.  class Vision
+================
+[ created from class Vision ]
+
+
+cvar.Vision_RED
+        [ Static member : Global : int Vision::RED ]
+
+cvar.Vision_BLUE
+        [ Static member : Global : int Vision::BLUE ]
+
+cvar.Vision_WORKSPACE
+        [ Static member : Global : int Vision::WORKSPACE ]
+
+cvar.Vision_IMAGE
+        [ Static member : Global : int Vision::IMAGE ]
+
+cvar.Vision_OR
+        [ Static member : Global : int Vision::OR ]
+
+cvar.Vision_ACCUM
+        [ Static member : Global : int Vision::ACCUM ]
+
+new_Vision(w,h,d,r,g,b)
+        [ Constructor: returns Vision * ]
+
+
+
+delete_Vision(Vision *)
+        [ Destructor: returns void  ]
+
+Vision_initialize(Vision *,wi,he,de,r,g,b)
+        [ Member : returns PyObject * ]
+
+Vision_registerCameraDevice(Vision *,args)
+        [ Member : returns PyObject * ]
+        PyObject *registerCameraDevice(Device device);
+
+Vision_superColor(Vision *,w1,w2,w3,outChannel,threshold)
+        [ Member : returns PyObject * ]
+
+Vision_matchRange(Vision *,lr,lg,lb,hr,hg,hb,outChannel)
+        [ Member : returns PyObject * ]
+
+Vision_match(Vision *,r,g,b,tolerance,outChannel)
+        [ Member : returns PyObject * ]
+
+Vision_matchList(Vision *,myList)
+        [ Member : returns PyObject * ]
+
+Vision_get(Vision *,w,h)
+        [ Member : returns PyObject * ]
+
+Vision_set(Vision *,w,h,r,g,b)
+        [ Member : returns PyObject * ]
+
+
+
+Vision_drawRect(Vision *,x1,y1,x2,y2,fill,channel)
+        [ Member : returns PyObject * ]
+
+Vision_drawCross(Vision *,x1,y1,length,channel)
+        [ Member : returns PyObject * ]
+
+Vision_scale(Vision *,r,g,b)
+        [ Member : returns PyObject * ]
+
+Vision_meanBlur(Vision *,kernel)
+        [ Member : returns PyObject * ]
+
+Vision_gaussianBlur(Vision *)
+        [ Member : returns PyObject * ]
+
+Vision_medianBlur(Vision *,kernel)
+        [ Member : returns PyObject * ]
+
+Vision_threshold(Vision *,channel,value)
+        [ Member : returns PyObject * ]
+
+Vision_getMiddleIndex(Vision *,median,kernel)
+        [ Member : returns int  ]
+
+Vision_inverse(Vision *,channel)
+        [ Member : returns PyObject * ]
+
+Vision_getWidth(Vision *)
+        [ Member : returns int  ]
+
+Vision_getHeight(Vision *)
+        [ Member : returns int  ]
+
+Vision_getDepth(Vision *)
+        [ Member : returns int  ]
+
+Vision_saveImage(Vision *,filename)
+        [ Member : returns PyObject * ]
+
+Vision_getMMap(Vision *)
+        [ Member : returns PyObject * ]
+
+Vision_histogram(Vision *,x1,y1,x2,y2,bins)
+        [ Member : returns PyObject * ]
+
+Vision_grayScale(Vision *)
+        [ Member : returns PyObject * ]
+
+Vision_sobel(Vision *,val)
+        [ Member : returns PyObject * ]
+
+Vision_setPlane(Vision *,d,value)
+        [ Member : returns PyObject * ]
+
+Vision_blobify(Vision *,inChannel,low,high,sortmethod,size,drawBox,super_color)
+        [ Member : returns PyObject * ]
+
+Vision_applyFilter(Vision *,filter)
+        [ Member : returns PyObject * ]
+
+Vision_applyFilters(Vision *,filterList)
+        [ Member : returns PyObject * ]
+
+Vision_addFilter(Vision *,newFilter)
+        [ Member : returns PyObject * ]
+
+Vision_applyFilterList(Vision *)
+        [ Member : returns PyObject * ]
+
+Vision_setFilterList(Vision *,filterList)
+        [ Member : returns PyObject * ]
+
+Vision_getFilterList(Vision *)
+        [ Member : returns PyObject * ]
+
+Vision_popFilterList(Vision *)
+        [ Member : returns PyObject * ]
+
+Vision_getCopyMode(Vision *)
+        [ Member : returns int  ]
+
+Vision_setCopyMode(Vision *,value)
+        [ Member : returns void  ]
+
+Vision_getMotionDetection(Vision *)
+        [ Member : returns int  ]
+
+Vision_setMotionDetection(Vision *,val)
+        [ Member : returns void  ]
+
+Vision_getRGB(Vision *)
+        [ Member : returns PyObject * ]
+
+Vision_setRGB(Vision *,r,g,b)
+        [ Member : returns PyObject * ]
+
+Vision_setImage(Vision *,newImage)
+        [ Member : returns PyObject * ]
+
+Vision_backup(Vision *)
+        [ Member : returns PyObject * ]
+
+Vision_restore(Vision *)
+        [ Member : returns PyObject * ]
+
+Vision_motion(Vision *,threshold)
+        [ Member : returns PyObject * ]
+
+Vision_rotate(Vision *)
+        [ Member : returns PyObject * ]
+
+Vision_getMenu(Vision *)
+        [ Member : returns PyObject * ]
+
+Vision_swapPlanes(Vision *,d1,d2)
+        [ Member : returns PyObject * ]
+
